@@ -1,4 +1,4 @@
-package br.com.evonetwork.compactarArquivos;
+package br.com.evonetwork.compactararquivos;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
@@ -15,7 +15,7 @@ public class Compactador {
 	static final int TAMANHO_BUFFER = 4096; // 4kb
 	public static final int DEFAULT_BUFFER_SIZE = 8192;
 
-   //método para compactar arquivo
+   //mï¿½todo para compactar arquivo
    public static byte[] compactarParaZip(ArrayList<byte[]> arqEntradas, ArrayList<String> nomeArquivos) throws IOException {
 	    int cont;
 	    final byte[] dados = new byte[TAMANHO_BUFFER];

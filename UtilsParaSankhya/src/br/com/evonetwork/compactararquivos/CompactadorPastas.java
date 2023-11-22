@@ -1,4 +1,4 @@
-package br.com.evonetwork.compactarArquivos;
+package br.com.evonetwork.compactararquivos;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
