@@ -32,7 +32,7 @@ public class NativeSQL {
 			
 			rset = sql.executeQuery();
 			
-			if (rset.next()) {
+			while(rset.next()) {
 				dado = rset.getString(1);
 			}
 		} catch (Exception e) {
