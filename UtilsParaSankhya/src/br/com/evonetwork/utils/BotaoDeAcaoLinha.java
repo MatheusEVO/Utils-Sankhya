@@ -16,6 +16,11 @@ public class BotaoDeAcaoLinha implements AcaoRotinaJava{
 			for (Registro linha : linhas) {
 
 				BigDecimal numcontrato = (BigDecimal) linha.getCampo("NUMCONTRATO");
+				
+				boolean simNao = contexto.confirmarSimNao("texto 1", "texto 2", 1);
+				if (simNao) {
+				 //TODO
+				}
 
 			}
 		} catch (Exception e) {
