@@ -16,7 +16,7 @@ public class GerarLinkParaTela {
 
 		
 		//banco sql server
-		//String link =  "'<a target=\"_top\" href=\"+linkBase+"'mge/system.jsp#app/'+"+encodedString+"||'/'+"+pkEncoded+"+'\">Clique aqui</a>'";
+//		String link =  "'<a target=\"_top\" href=\"+linkBase+"'mge/system.jsp#app/'+"+encodedString+"||'/'+"+pkEncoded+"+'\">Clique aqui</a>'";
 
 		return link;
 	}

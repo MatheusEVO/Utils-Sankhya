@@ -6,5 +6,7 @@ public class BuscarParametro {
 	@SuppressWarnings("unused")
 	public void buscarParametro() throws Exception {
 		String parametro = MGECoreParameter.getParameterAsString("LEXIOIDPROC");
+		
+		// ou um select na tabela TSIPAR
 	}
 }

@@ -25,7 +25,7 @@ public class PegarDynamicVO implements EventoProgramavelJava{
 	public void afterUpdate(PersistenceEvent event) throws Exception {
 		EntityFacade dwfFacadeP = EntityFacadeFactory.getDWFFacade();
         final DynamicVO dynamicPAP = (DynamicVO)dwfFacadeP.getDefaultValueObjectInstance("ParceiroProspect");
-        dynamicPAP.setProperty("AD_NROUNICO", "alguma coisa");		
+        dynamicPAP.setProperty("AD_NROUNICO", "alguma coisa");
 	}
 
 	@Override

@@ -9,15 +9,19 @@ import br.com.sankhya.extensions.actionbutton.Registro;
 public class BotaoDeAcaoLinha implements AcaoRotinaJava{
 
 	@Override
-	public void doAction(ContextoAcao contexto) throws Exception {
+	public void doAction(ContextoAcao ca) throws Exception {
+
+	}
+	
+	private void loopLinhas(ContextoAcao ca) {
 		try {
-			Registro[] linhas = contexto.getLinhas();
+			Registro[] linhas = ca.getLinhas();
 
 			for (Registro linha : linhas) {
 
 				BigDecimal numcontrato = (BigDecimal) linha.getCampo("NUMCONTRATO");
 				
-				boolean simNao = contexto.confirmarSimNao("texto 1", "texto 2", 1);
+				boolean simNao = ca.confirmarSimNao("texto 1", "texto 2", 1);
 				if (simNao) {
 				 //TODO
 				}
@@ -27,5 +31,10 @@ public class BotaoDeAcaoLinha implements AcaoRotinaJava{
 			e.printStackTrace();
 		}
 	}
-
+	private void validarLinhasSelecionadas(ContextoAcao ca) throws Exception {
+		if (ca.getLinhas().length > 1)
+			throw new Exception("Selecione apenas uma negociação para alterar o produto.");
+		if (ca.getLinhas().length == 0)
+			throw new Exception("Selecione uma negociação para alterar o produto.");
+	}
 }
