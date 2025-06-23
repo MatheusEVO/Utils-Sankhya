@@ -1,4 +1,4 @@
-package br.com.evonetwork.utils;
+package br.com.evonetwork.crud;
 
 import java.math.BigDecimal;
 import java.sql.PreparedStatement;

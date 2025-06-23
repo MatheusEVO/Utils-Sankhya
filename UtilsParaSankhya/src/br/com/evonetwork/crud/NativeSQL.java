@@ -1,7 +1,8 @@
-package br.com.evonetwork.utils;
+package br.com.evonetwork.crud;
 
 import java.sql.ResultSet;
 
+import com.ibm.icu.math.BigDecimal;
 import com.sankhya.util.JdbcUtils;
 
 import br.com.sankhya.jape.EntityFacade;
@@ -12,7 +13,8 @@ import br.com.sankhya.jape.sql.NativeSql;
 import br.com.sankhya.modelcore.util.EntityFacadeFactory;
 
 public class NativeSQL {
-	public String getDado() throws Exception {
+
+	public String fazerConsulta() throws Exception {
 		JdbcWrapper jdbc = null;
 		NativeSql sql = null;
 		ResultSet rset = null;
@@ -24,15 +26,15 @@ public class NativeSQL {
 			EntityFacade entity = EntityFacadeFactory.getDWFFacade();
 			jdbc = entity.getJdbcWrapper();
 			jdbc.openSession();
-			
+
 			sql = new NativeSql(jdbc);
-			
+
 			sql.appendSql("SELECT MAX(NROREMESSA) FROM AD_REMESSASERASA");
-			System.out.println("SQL: "+sql.toString());
-			
+			System.out.println("SQL: " + sql.toString());
+
 			rset = sql.executeQuery();
-			
-			while(rset.next()) {
+
+			while (rset.next()) {
 				dado = rset.getString(1);
 			}
 		} catch (Exception e) {
@@ -45,5 +47,27 @@ public class NativeSQL {
 			JapeSession.close(hnd);
 		}
 		return dado;
+	}
+
+	private void fazerContsultaSQLExterno() throws Exception {
+		JdbcWrapper jdbc = null;
+		NativeSql sql = null;
+		ResultSet rset = null;
+		SessionHandle hnd = null;
+	
+		try {
+			jdbc.openSession();
+			NativeSql nativeSql = new NativeSql(jdbc);
+			nativeSql.loadSql(getClass(), "sql/consulta.sql");
+			nativeSql.setNamedParameter("PARAMETRO", new BigDecimal(1));
+			ResultSet rs = nativeSql.executeQuery();
+			while (rs.next()) {
+				rs.getBigDecimal("");
+			}
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
+		} finally {
+			jdbc.closeSession();
+		}
 	}
 }
